@@ -1,0 +1,64 @@
+Backend Routes Description
+1. User Routes (/users)
+GET /users: Fetch a list of all users.
+Description: This endpoint retrieves all users from the database.
+Example Response: [ { id: 1, name: "John Doe", email: "john@example.com" }, ... ]
+POST /users: Create a new user.
+Description: This endpoint creates a new user with the provided data.
+Example Payload: { name: "John Doe", email: "john@example.com", password: "password123" }
+GET /users/:id: Fetch a specific user by ID.
+Description: This endpoint retrieves the details of a user by their unique ID.
+Example Response: { id: 1, name: "John Doe", email: "john@example.com" }
+PUT /users/:id: Update a specific user by ID.
+Description: This endpoint updates the information of an existing user by their unique ID.
+Example Payload: { name: "John Doe", email: "john@example.com", password: "newpassword123" }
+DELETE /users/:id: Delete a specific user by ID.
+Description: This endpoint deletes a user from the database by their unique ID.
+Example Response: { message: "User deleted successfully" }
+2. Authentication Routes (/auth)
+POST /auth/signup: Register a new user.
+Description: This endpoint handles user registration.
+Example Payload: { name: "John Doe", email: "john@example.com", password: "password123" }
+POST /auth/login: Log in a user.
+Description: This endpoint authenticates a user and returns a token.
+Example Payload: { email: "john@example.com", password: "password123" }
+Example Response: { token: "jwt-token-here" }
+POST /auth/logout: Log out a user.
+Description: This endpoint handles user logout, invalidating the user session.
+Example Response: { message: "Logged out successfully" }
+POST /auth/refresh-token: Refresh authentication tokens.
+Description: This endpoint refreshes the user's authentication token.
+Example Payload: { token: "current-token-here" }
+Example Response: { token: "new-jwt-token-here" }
+3. Product Routes (/products)
+GET /products: Fetch a list of all products.
+Description: This endpoint retrieves all products from the database.
+Example Response: [ { id: 1, name: "Product 1", price: 100 }, ... ]
+POST /products: Create a new product.
+Description: This endpoint creates a new product with the provided data.
+Example Payload: { name: "Product 1", price: 100, description: "Product description" }
+GET /products/:id: Fetch a specific product by ID.
+Description: This endpoint retrieves the details of a product by its unique ID.
+Example Response: { id: 1, name: "Product 1", price: 100, description: "Product description" }
+PUT /products/:id: Update a specific product by ID.
+Description: This endpoint updates the information of an existing product by its unique ID.
+Example Payload: { name: "Updated Product", price: 150, description: "Updated description" }
+DELETE /products/:id: Delete a specific product by ID.
+Description: This endpoint deletes a product from the database by its unique ID.
+Example Response: { message: "Product deleted successfully" }
+4. Order Routes (/orders)
+GET /orders: Fetch a list of all orders.
+Description: This endpoint retrieves all orders from the database.
+Example Response: [ { id: 1, userId: 1, productList: [1, 2], total: 200 }, ... ]
+POST /orders: Create a new order.
+Description: This endpoint creates a new order with the provided data.
+Example Payload: { userId: 1, productList: [1, 2], total: 200 }
+GET /orders/:id: Fetch a specific order by ID.
+Description: This endpoint retrieves the details of an order by its unique ID.
+Example Response: { id: 1, userId: 1, productList: [1, 2], total: 200 }
+PUT /orders/:id: Update a specific order by ID.
+Description: This endpoint updates the information of an existing order by its unique ID.
+Example Payload: { userId: 1, productList: [1, 2, 3], total: 300 }
+DELETE /orders/:id: Delete a specific order by ID.
+Description: This endpoint deletes an order from the database by its unique ID.
+Example Response: { message: "Order deleted successfully" }
